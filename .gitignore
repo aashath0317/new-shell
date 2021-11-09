@@ -1,3 +1,16 @@
 /config.json
 node_modules/
 npm-debug.log
+config.env
+*auth_token.txt
+*.pyc
+downloads/*
+download/*
+data*
+.vscode
+.idea
+*.json
+*.pickle
+authorized_chats.txt
+log.txt
+accounts/*
