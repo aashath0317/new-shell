@@ -3,6 +3,18 @@ FROM python:3-slim-buster
 # Install all the required packages
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
+COPY extract /usr/local/bin
+COPY pextract /usr/local/bin
+RUN chmod +x /usr/local/bin/extract && chmod +x /usr/local/bin/pextract
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+COPY . .
+COPY .netrc /root/.netrc
+RUN chmod 600 /usr/src/app/.netrc
+RUN chmod +x aria.sh
+
+CMD ["bash","run.sh"]
+
 RUN apt-get -qq update
 RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv jq
 
