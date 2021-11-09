@@ -22,3 +22,4 @@ fi
 echo "SETUP COMPLETED"
 
 node server
+./aria.sh; python3 -m bot
